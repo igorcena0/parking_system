@@ -1,17 +1,22 @@
 #include "SystemParkingowy.h"
 #include "Kierowca.h"
+#include "AdministratorParkingu.h"
 #include <iostream>
 
 //SystemParkingowy* globalnyParking = nullptr;
 
 int main() {
-    SystemParkingowy system(5, 5.0); // 5 miejsc, 5 z³ za godzinê
-    globalnyParking = &system;
+    SystemParkingowy parking(5, 6.5); // 5 miejsc, 6.5 z³ za godzinê
+    globalnyParking = &parking;
 
     Kierowca kierowca;
-    kierowca.wjazdPojazdu("ABC1234");
+    AdministratorParkingu admin;
 
-    system.wyswietlStan();
+    kierowca.wjazdPojazdu("TEST123");
+    kierowca.wjazdPojazdu("ADMIN1");
+
+    std::cout << "\n>>> Przejscie do panelu administratora:\n";
+    admin.panelAdmina();
 
     return 0;
 }
